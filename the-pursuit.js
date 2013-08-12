@@ -68,8 +68,10 @@ function start() {
  */
 initMiddleware();
 initServer();
-// Only start server if this script is executed, not if it's require()'d
-if (require.main === module) {
+// Only start server if this script is executed, or wrapped by pm2
+// not if it's require()'d
+
+if (process.env.pm2 || require.main === module) {
   start();
 }
 
