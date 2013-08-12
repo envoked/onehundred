@@ -1,4 +1,4 @@
 #!/usr/bin/zsh
 pm2 stop index.js
-PM2=true pm2 restart index.js
+PM2=true pm2 start index.js
 echo "restarting The Pursuit"
