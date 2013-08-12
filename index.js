@@ -71,7 +71,7 @@ initServer();
 // Only start server if this script is executed, or wrapped by pm2
 // not if it's require()'d
 
-if (process.env.pm2 || require.main === module) {
+if (process.env.PM2 || require.main === module) {
   start();
 }
 
