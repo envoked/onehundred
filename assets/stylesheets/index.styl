@@ -1,23 +1,19 @@
-@import 'vendor/bootstrap.min.css'
-@import 'base_view'
-
+@import 'fonts'
+@import 'nib'
 body
-  background-color: white;
-  padding-top: 50px
-
+  background: linear-gradient(left, white, #efefef);
   &.loading
     .loading-indicator
       display: block
 
-.loading-indicator
-  display: none
-  float: right
-  color: white
-  line-height: 40px
-
-h3 {
-   transition:opacity 1s;
-   &:hover {
-    opacity: 0;
-   }
-}
+.absolute-center
+  width: 400px
+  height: 250px
+  overflow: auto
+  margin: auto
+  position: absolute
+  top: 10px
+  left: 0
+  bottom: 0
+  right: 0
+  background #efefef
