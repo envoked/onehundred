@@ -12,16 +12,12 @@ exports.config = {
 
   api: {
     'default': {
-      host: 'api.github.com',
-      protocol: 'https'
+      host: 'localhost:30230/api/v1',
+      protocol: 'http'
     },
     'travis-ci': {
       host: 'api.travis-ci.org',
       protocol: 'https'
     }
   },
-
-  rendrApp: {
-    someProperty: 'someValue'
-  }
 };

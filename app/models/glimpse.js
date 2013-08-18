@@ -1,7 +1,7 @@
 var Base = require('./base');
 
 module.exports = Base.extend({
-  url: 'http://localhost:3030/api/v1/glimpses/:id',
+  relUrl: '/glimpses/:id',
   idAttribute: '_id',
 
   defaults: {

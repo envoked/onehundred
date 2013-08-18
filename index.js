@@ -43,8 +43,8 @@ function initMiddleware() {
 function initServer() {
   var options = {
     errorHandler: mw.errorHandler(),
-    dataAdapter: null,
-    appData: env.current.rendrApp
+    appData: env.current.rendrApp,
+    api: "http://adasd",
   };
   server = rendr.createServer(app, options);
 }
