@@ -1,7 +1,7 @@
 var Base = require('./base');
 
 module.exports = Base.extend({
-  relUrl: '/glimpses/:id',
+  url: '/glimpses/:id',
   idAttribute: '_id',
 
   defaults: {
@@ -9,12 +9,6 @@ module.exports = Base.extend({
     title: null,
     id: null,
   },
-
-  getTemplateData: function() {
-  }
-
-
-
 });
 
 module.exports.id = 'Glimpse';

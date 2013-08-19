@@ -12,7 +12,7 @@ exports.config = {
 
   api: {
     'default': {
-      host: 'localhost:30230/api/v1',
+      host: 'localhost:3333/api/v1',
       protocol: 'http'
     },
     'travis-ci': {

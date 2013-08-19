@@ -3,6 +3,6 @@ var Glimpse = require('../models/glimpse'),
 
 module.exports = Base.extend({
   model: Glimpse,
-  relUrl: '/glimpses',
+  url: '/moments',
 });
 module.exports.id = 'Glimpses';

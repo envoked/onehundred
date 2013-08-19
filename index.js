@@ -3,6 +3,7 @@ var express = require('express'),
     rendr = require('rendr'),
     env = require('./server/lib/env'),
     mw = require('./server/middleware'),
+    DataAdapter = require('./server/lib/data_adapter'),
     app,
     server;
 
@@ -22,8 +23,6 @@ function initMiddleware() {
    * `app.router` middleware.
    */
   app.use(app.router);
-  app.use('/api/v1', mw.api());
-
 
   /**
    * Error handler goes last.
@@ -42,9 +41,9 @@ function initMiddleware() {
  */
 function initServer() {
   var options = {
+    dataAdapter: new DataAdapter(env.current.api),
     errorHandler: mw.errorHandler(),
     appData: env.current.rendrApp,
-    api: "http://adasd",
   };
   server = rendr.createServer(app, options);
 }
@@ -61,21 +60,12 @@ function start() {
     app.settings.env);
 }
 
-
-function initDB(){
-  mongoose.connect('mongodb://localhost/the-pursuit');
-  var Glimpse = new mongoose.Schema({ name: String, title: String });
-  mongoose.model('glimpse', Glimpse);
-}
-
-
 /**
  * Here we actually initialize everything and start the Express server.
  *
  * We have to add the middleware before we initialize the server, otherwise
  * the 404 handler gets too greedy, and intercepts i.e. static assets.
  */
-initDB();
 initMiddleware();
 initServer();
 // Only start server if this script is executed, or wrapped by pm2
