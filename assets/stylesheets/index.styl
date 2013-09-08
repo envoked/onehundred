@@ -1,15 +1,19 @@
-@import 'fonts'
 @import 'nib'
-@import 'vendor/reset.css'
+@import 'fonts'
+@import 'grid.styl'
+
+@columns = 12
+@column-width = 60;
+@gutter-width = 20;
+@total-width = 100%;
+
 body
+  global-reset()
   background: linear-gradient(left, white, #efefef);
-  &.loading
-    .loading-indicator
-      display: block
+  color: #323232
 
 .absolute-center
-  width: 400px
-  height: 250px
+  column(6)
   overflow: auto
   margin: auto
   position: absolute
@@ -17,4 +21,45 @@ body
   left: 0
   bottom: 0
   right: 0
-  background #efefef
+  z-index: 10
+  text-align: center
+
+.videoBG
+  transition: all 0.75s ease-in-out
+  -webkit-filter: grayscale(100%)
+
+  &.focused
+    -webkit-filter: grayscale(0%)
+
+
+.header-container
+  padding: 10px
+  height: 33%
+  color: white;
+
+  .one-hundred-days
+    font-size: 72px
+    display: inline-block
+    text-shadow black 0px 2px 4px;
+
+
+  .object
+    font-size: 90px
+    display: inline-block
+    border-bottom: solid 5px
+    margin: 0px 10px
+    box-shadow: black 0px 2px 4px -4px
+
+    span
+      z-index: -1000
+      opacity: 0
+
+
+.bottom-nav
+  width: 100%
+  height: 56px
+  background: rgba(33,33,33,0.8)
+  bottom: 0px
+  left: 0px
+  z-index: 10
+  position: absolute

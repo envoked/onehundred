@@ -295,11 +295,11 @@
 
     // check which?
     switch (str) {
-      case 'webm' :
-        return (v.canPlayType('video/webm; codecs="vp8, vorbis"'));
-        break;
       case 'mp4' :
         return (v.canPlayType('video/mp4; codecs="avc1.42E01E, mp4a.40.2"'));
+        break;
+      case 'webm' :
+        return (v.canPlayType('video/webm; codecs="vp8, vorbis"'));
         break;
       case 'ogv' :
         return (v.canPlayType('video/ogg; codecs="theora, vorbis"'));
@@ -325,8 +325,8 @@
       ogv:'',
       webm:'',
       poster:'',
-      autoplay:true,
-      loop:true,
+      autoplay:false,
+      loop:false,
       scale:false,
       position:"absolute",
       opacity:1,

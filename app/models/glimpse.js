@@ -5,9 +5,9 @@ module.exports = Base.extend({
   idAttribute: '_id',
 
   defaults: {
-    name: null,
     title: null,
-    id: null,
+    description: null,
+    created_at: null,
   },
 });
 
