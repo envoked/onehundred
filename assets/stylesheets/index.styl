@@ -1,7 +1,9 @@
 @import 'nib'
+@import 'type.css'
 @import 'fonts'
 @import 'grid.styl'
 
+// Config
 @columns = 12
 @column-width = 60;
 @gutter-width = 20;
@@ -26,36 +28,53 @@ body
 
 .videoBG
   transition: all 0.75s ease-in-out
-  -webkit-filter: grayscale(100%)
+  -webkit-filter: grayscale(100%) blur(2px)
 
   &.focused
-    -webkit-filter: grayscale(0%)
+    -webkit-filter: grayscale(0%) blur(0px)
 
 
 .header-container
   padding: 10px
-  height: 33%
+  height: 50%
   color: white;
+  text-shadow black 0px 2px 4px;
+
 
   .one-hundred-days
     font-size: 72px
     display: inline-block
     text-shadow black 0px 2px 4px;
 
-
   .object
     font-size: 90px
     display: inline-block
-    border-bottom: solid 5px
     margin: 0px 10px
-    box-shadow: black 0px 2px 4px -4px
 
     span
       z-index: -1000
       opacity: 0
 
+  .description
+    margin: 18px 0px
+    font-size: 18px
+    opacity(0)
+
+  .play
+    background: rgba(33,33,33,0.8)
+    font-size: 32px
+    padding: 10px
+    width: 72px
+    height: 72px
+    border-radius(72px)
+    line-height: 72px
+    font-size: 60px
+    display: inline-block
+    opacity(0)
+
 
 .bottom-nav
+  color: white
   width: 100%
   height: 56px
   background: rgba(33,33,33,0.8)
@@ -63,3 +82,11 @@ body
   left: 0px
   z-index: 10
   position: absolute
+
+.secondary-info
+  column(2)
+  position: absolute
+  top: 0px
+  right: 0px
+
+

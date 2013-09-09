@@ -2,14 +2,31 @@ var BaseView = require('../base');
 
 module.exports = BaseView.extend({
   className: 'home_index_view',
+  events:{
+    'click .play': 'play'
+  },
 
   postRender: function(){
+    this.$description = $('.description');
+    this.$hundo = $('.one-hundred-days');
+    this.$headerContainer = $('.header-container');
+    this.$play= $('.play');
+
     this._typeTitle();
     this._startVideo();
   },
 
   _fadeTitle: function(){
 
+  },
+
+  play: function(e){
+    var self = this;
+    $('.videoBG').addClass('focused');
+    this.$headerContainer.transition({opacity: 0.1},700,'easeInOutCubic', function(){
+      self.$play.transition({opacity: 0.0},700,'easeInOutCubic');
+      $('video')[0].play();
+    });
   },
 
   _typeTitle: function(){
@@ -19,10 +36,11 @@ module.exports = BaseView.extend({
       typeSpeed: 100,
       typedCursor: false,
       callback: function(){
-        $('.videoBG').addClass('focused');
-        $('video')[0].play();
-        var $hundo = $('.one-hundred-days');
-        $hundo.transition({opacity:0, 'margin-left': $hundo.width() * -1},500,'easeInOutCubic');
+        self.$hundo.transition({opacity:0, 'margin-left': self.$hundo.width() * -1},1000,'easeInOutCubic', function(){
+          self.$description.transition({opacity: 1},1000,'easeInOutCubic', function(){
+            self.$play.transition({opacity:1});
+          });
+        });
       }
     });
   },
