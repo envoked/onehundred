@@ -8,6 +8,7 @@ module.exports = Base.extend({
     title: null,
     description: null,
     created_at: null,
+    animations: [],
   },
 });
 
