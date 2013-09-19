@@ -43,6 +43,12 @@ module.exports = BaseView.extend({
       zIndex : 0,
     });
     $('#nostalgia video')[0].pause();
+  },
+  getTemplateData: function(){
+    return { glimpses: [
+      'intro',
+      'nostalgia'
+    ]};
   }
 });
 module.exports.id = 'home/index';
