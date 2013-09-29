@@ -7,7 +7,7 @@ module.exports = BaseView.extend({
     this.$('.dial').knob({
       readOnly   : true,
       fgColor    : '#BEC3BC',
-      inputColor : '#BEC3BC'
+      inputColor : '#BEC3BC',
     });
   },
 

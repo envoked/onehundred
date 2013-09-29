@@ -26,6 +26,7 @@ module.exports = BaseView.extend({
       zIndex : 0,
       autoPlay: false,
     });
+    $('video')[0].pause();
   },
 
   getTimeline: function(){
