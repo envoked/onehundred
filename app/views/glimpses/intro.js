@@ -4,19 +4,16 @@ module.exports = BaseView.extend({
   postRender: function(){
     this.$scroller = window.scroller;
     this.addTweens();
+    this.$('.dial').knob();
     return true;
   },
 
   addTweens: function(){
     var self = this;
-    this.$scroller.addTween(
-      self.$el,
-      (new TimelineLite().append([
-        TweenMax.from(self.$('h3'), 2, {css:{opacity:0}},1)
-      ])),
-      100
-    );
-
+   (new TimelineMax()).
+        append(TweenMax.from(self.$('h1'), 0.75, {autoAlpha:0, delay: 0.75})).
+        append(TweenMax.from(self.$('.subtitle'), 1, {'margin-top':-50, autoAlpha: 0, delay: -0.75})).
+        append(TweenMax.fromTo(self.$('.scroll-down'), 1, {autoAlpha: 0}, {'margin-top':"+=10", autoAlpha: 1, yoyo: true, repeat: -1}));
 
   }
 });

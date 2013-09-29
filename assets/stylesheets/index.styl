@@ -1,14 +1,3 @@
-@import 'nib'
-@import 'type.css'
-@import 'fonts'
-@import 'grid.styl'
-
-// Config
-@columns = 12
-@column-width = 60;
-@gutter-width = 20;
-@total-width = 100%;
-
 //colors
 suble-snow = #E6E8E3;
 dirty-snow = #D7DACF;
@@ -16,6 +5,21 @@ dark-snow  = #BEC3BC;
 gray-sky   = #8F9A9C;
 dark-sky   = #65727A;
 fire-red   = #D45B39;
+
+
+@import 'nib'
+@import 'type.css'
+@import 'fonts'
+@import 'grid.styl'
+@import 'spinner.css'
+@import 'glimpses/intro.styl'
+
+// Config
+@columns = 12
+@column-width = 60;
+@gutter-width = 20;
+@total-width = 100%;
+
 global-reset()
 
 
@@ -41,14 +45,6 @@ body
   text-align: center
   height: 33%
   overflow: hidden
-
-.videoBG
-  transition: all 0.75s ease-in-out
-  -webkit-filter: grayscale(100%) blur(2px)
-
-  &.focused
-    -webkit-filter: grayscale(0%) blur(0px)
-
 
 .header-container
   padding: 10px
@@ -123,5 +119,18 @@ h1{
   margin-bottom: 10px
   display: block
   background-size: cover
-  font-size
 }
+
+.left-align{
+  text-align: left
+}
+
+.hidden{
+  opacity: 0.0
+}
+
+
+.stats
+  position: fixed
+  right: 0
+

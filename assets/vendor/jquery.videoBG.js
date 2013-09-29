@@ -148,10 +148,11 @@
       .css('top',0)
       .css('left',0)
       .css('min-width','100%')
-      .css('min-height','100%');
+      .css('min-height','100%')
+      .attr('muted','true');
 
     if (options.autoplay) {
-      $video.attr('autoplay',options.autoplay);
+      $video.attr('autoplay','false');
     }
 
     // if fullscreen

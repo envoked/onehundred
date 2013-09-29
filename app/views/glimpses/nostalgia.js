@@ -6,9 +6,12 @@ module.exports = BaseView.extend({
   postRender: function(){
     this.initVideo();
 
-    window.scroller.addTween(
+    window.scroller.pin(
       this.$el,
-      this.getTimeline()
+      1000,
+      {
+        anim: this.getTimeline()
+      }
     );
     return true;
   },
@@ -21,19 +24,21 @@ module.exports = BaseView.extend({
       poster : '/videos/nostalgia/nostalgia.jpg',
       scale  : true,
       zIndex : 0,
+      autoPlay: false,
     });
-    this.$video = this.$('video')[0];
-    this.$video.pause();
   },
 
   getTimeline: function(){
     var self = this;
-    var tl = new TimelineMax({
-      onComplete: function(){self.$video.play();}
-    });
-    tl.add(TweenMax.from(this.$el, 0.7, {css:{autoAlpha:0}}));
-
-    return tl;
+    return (new TimelineMax().
+      append(TweenMax.from(self.$el, 0.75, {autoAlpha:0})).
+      append(TweenMax.to(self.$('.absolute-center'), 0.3, {autoAlpha:0})).
+      append(TweenMax.from(self.$('.videoBG'), 0.5,{
+        autoAlpha: 0,
+        onComplete: (function(){$('video')[0].play();}),
+        delay: -0.3
+      }))
+    );
   },
 
 });
