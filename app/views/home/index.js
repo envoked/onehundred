@@ -9,6 +9,8 @@ module.exports = BaseView.extend({
       fgColor    : '#BEC3BC',
       inputColor : '#BEC3BC',
     });
+    // Track visit
+    mixpanel.track("action.visit");
   },
 
   getGlimpses: function(){
