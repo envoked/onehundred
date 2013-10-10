@@ -18,6 +18,7 @@ module.exports = BaseView.extend({
       'intro',
       'preface',
       'nostalgia',
+      'commitment',
       'fin'
     ];
   },
