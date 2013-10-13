@@ -4,9 +4,12 @@ module.exports = BaseView.extend({
 
   postRender: function(){
 
-    window.scroller.addTween(
+    window.scroller.pin(
       this.$el,
-      this.getTimeline()
+      1200,
+      {
+        anim: this.getTimeline()
+      }
     );
     return true;
   },
@@ -14,9 +17,9 @@ module.exports = BaseView.extend({
   getTimeline: function(){
     var self = this;
     var tl = new TimelineMax({
-      // onComplete: function(){self.$video.play();}
     });
-    tl.add(TweenMax.from(this.$el, 0.7, {css:{autoAlpha:0}}));
+
+    tl.append(TweenMax.to(this.$('.overlay'), 1000, {autoAlpha: 0, scrollTo: {y: 0}}));
 
     return tl;
   },

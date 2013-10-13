@@ -6,9 +6,9 @@ module.exports = BaseView.extend({
     this.initMap();
     window.scroller.pin(
       this.$el,
-      1200,
+      1000,
       {
-        anim: this.getTimeline()
+        anim: this.getTimeline(),
       }
     );
     return true;
@@ -23,7 +23,7 @@ module.exports = BaseView.extend({
         TweenMax.from(this.$('.note'), 500, {right: '-200%',rotationZ: 10, delay: 500})])
       .append([
         TweenMax.to(this.$('.note'), 500, {delay: 500, left: '-200%',rotationZ: -10}),
-        TweenMax.from(this.$('.map'), 500, {autoAlpha: 0, delay: 500})
+        TweenMax.to(this.$('.overlay'), 500, {autoAlpha: 0, delay: 500})
       ])
       );
   },
