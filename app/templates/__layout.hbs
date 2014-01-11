@@ -19,15 +19,10 @@ mixpanel.init("9f3da1309fa33556fdecc11b55c1ec02");</script><!-- end Mixpanel -->
     <script src="/mergedAssets.js"></script>
     <script>
     (function() {
-      var Scroller = window.scroller = $.superscrollorama({
-        playoutAnimations: true,
-        triggerAtCenter: true,
-      });
 
       var App = window.App = new (require('app/app'))({{json appData}});
       App.bootstrapData({{json bootstrappedData}});
       App.start();
-
     })();
     </script>
 

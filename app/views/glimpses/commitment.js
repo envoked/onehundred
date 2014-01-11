@@ -2,16 +2,36 @@ var BaseView = require('../base');
 module.exports = BaseView.extend({
   className: 'glimpse commitment',
 
+  events: {
+    'click .play': 'play'
+  },
+
   postRender: function(){
     this.initMap();
-    window.scroller.pin(
-      this.$el,
-      1000,
-      {
-        anim: this.getTimeline(),
-      }
-    );
+    this.eavesdrop();
+
     return true;
+  },
+
+  eavesdrop: function() {
+    this.$el.on("panelsnap:finish", this.activate.bind(this));
+  },
+
+  // TODO: probably abstract this into a child of baseview... say GlimpseView
+  activate: function() {
+    var self = this;
+    new TimelineMax()
+      .to(self.$('h1'), 0.3, { autoAlpha: 1 })
+      .to(self.$('.description'), 0.7, { autoAlpha: 1 })
+      .to(self.$('.play'), 0.5, { autoAlpha: 1 });
+  },
+
+  // TODO: probably abstract this into a child of baseview... say GlimpseView
+  play: function() {
+    var self = this;
+    new TimelineMax()
+      .to(self.$('.absolute-center'), 0.3, { autoAlpha: 0 })
+      .to(self.$('.overlay'), 0.5, { autoAlpha: 0 });
   },
 
   getTimeline: function(){

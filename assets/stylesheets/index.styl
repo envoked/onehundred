@@ -29,7 +29,7 @@ ember      = #E68525;
 global-reset()
 
 
-html, .viewport, body
+html, body
   position: relative
   height: 100%
   background: suble-snow
@@ -68,7 +68,7 @@ a
   right: 0
   z-index: 10
   text-align: center
-  height: 50%
+  height: 70%
   overflow: hidden
 
 .header-container
@@ -118,7 +118,7 @@ a
 
 h1{
   font-size: 72px
-  color: dark-sky
+  color: suble-snow
 }
 
 .bottom-nav
@@ -144,6 +144,10 @@ h1{
   display: block
   background-size: cover
   overflow: hidden
+
+  &:active {
+    z-index: 9
+  }
 }
 
 .left-align{
@@ -151,7 +155,12 @@ h1{
 }
 
 .hidden{
-  opacity: 0.0
+  opacity: 0
+}
+
+#viewport {
+  height: 100%;
+  overflow: auto;
 }
 
 .overlay
@@ -177,3 +186,13 @@ h1{
 
 .space-1
   margin-bottom: 18px
+
+.hidden
+  opacity(0);
+
+.play {
+  cursor: pointer
+  display: block
+  font-size: 54px
+  text-align: center
+}

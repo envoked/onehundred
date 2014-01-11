@@ -1,16 +1,16 @@
 var BaseView = require('../base');
 
 module.exports = BaseView.extend({
-  className: 'viewport',
+  tagName: 'div',
+  id: 'viewport',
 
   postRender: function(){
-    this.$('.dial').knob({
-      readOnly   : true,
-      fgColor    : '#BEC3BC',
-      inputColor : '#BEC3BC',
+    this.$el.panelSnap({
+        $menu: false,
+        namespace: '.panelSnap',
+        slideSpeed: 700,
+        directionThreshold: 35,
     });
-    // Track visit
-    mixpanel.track("action.visit");
   },
 
   getGlimpses: function(){
@@ -19,7 +19,7 @@ module.exports = BaseView.extend({
       'preface',
       'nostalgia',
       'commitment',
-      // 'preparation',
+      'migration',
       'fin'
     ];
   },

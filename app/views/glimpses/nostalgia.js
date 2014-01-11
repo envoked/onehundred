@@ -3,17 +3,38 @@ module.exports = BaseView.extend({
   className: 'glimpse nostalgia',
   $video: null,
 
+  events: {
+    'click .play': 'play'
+  },
+
   postRender: function(){
     this.initVideo();
-
-    window.scroller.pin(
-      this.$el,
-      1000,
-      {
-        anim: this.getTimeline()
-      }
-    );
+    this.eavesdrop();
     return true;
+  },
+
+  play: function(e) {
+    var self = this;
+    e.preventDefault();
+    new TimelineMax()
+      .to(this.$('.overlay'), 0.3, { autoAlpha: 0 })
+      .to(this.$('.absolute-center'), 0.4, { autoAlpha: 0,
+                                             onComplete: function() {
+                                              self.$('video')[0].play();
+                                             }});
+
+  },
+
+  eavesdrop: function(){
+    this.$el.on("panelsnap:finish", this.activate.bind(this));
+  },
+
+  activate: function() {
+    this.playTimeline();
+  },
+
+  deactivate: function() {
+    this.$('video')[0].pause();
   },
 
   initVideo: function(){
@@ -29,18 +50,13 @@ module.exports = BaseView.extend({
     $('video')[0].pause();
   },
 
-  getTimeline: function(){
+  playTimeline: function(){
     var self = this;
-    return (new TimelineMax().
-      append(TweenMax.from(self.$('.absolute-center'), 100, {autoAlpha:0, delay: 0.75})).
-      append([TweenMax.to(self.$('.overlay'), 100,{
-        autoAlpha: 0,
-        onComplete: (function(){$('video')[0].play();}),
-        delay: -0.3
-      }),
-      TweenMax.to(self.$('.absolute-center'), 100, {autoAlpha:0, delay: 0.75})
-      ])
-    );
+    new TimelineMax()
+      .to(self.$('h1'), 0.5, { autoAlpha: 1 })
+      .to(self.$('p'), 1,  { autoAlpha: 1 })
+      .to(self.$('.play'), 0.5, { autoAlpha: 1, delay: 3 });
+
   },
 
 });

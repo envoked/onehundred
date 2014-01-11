@@ -1,6 +1,8 @@
 var BaseView = require('../base');
 module.exports = BaseView.extend({
+  tagName: 'section',
   className: 'glimpse intro',
+
   postRender: function(){
     this.addTweens();
     this.$('.dial').knob();

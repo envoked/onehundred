@@ -3,14 +3,6 @@ module.exports = BaseView.extend({
   className: 'glimpse preparation',
 
   postRender: function(){
-
-    window.scroller.pin(
-      this.$el,
-      1200,
-      {
-        anim: this.getTimeline()
-      }
-    );
     return true;
   },
 

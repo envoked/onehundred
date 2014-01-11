@@ -10,7 +10,8 @@ Like the endevour itself, the technology behind the site is also a step into the
 
 ### The Tech
 * [Rendr](https://github.com/airbnb/rendr)
-* [Superscrollorama](johnpolacek.github.io/superscrollorama/)
+* <del>[Superscrollorama](johnpolacek.github.io/superscrollorama/)</del>
+* [jQuery-panelsnap](https://github.com/guidobouman/jquery-panelsnap) SUPER Hacked up
 * [jquery.videoBG](https://github.com/sydlawrence/jquery.videoBG)
 
 
@@ -21,3 +22,6 @@ __Will displaying upwards of 100 different glimpses crash people's browsers?__
 __Individual linking, is it needed?__
 
 (Super amorphous thoughts around using pushstate and rendr/maybe infinity.js to make this fast)
+
+### TODO
+Deactivate State, reverse timeline and fade.
