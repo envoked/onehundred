@@ -15,37 +15,39 @@ module.exports = BaseView.extend({
 
   eavesdrop: function() {
     this.$el.on("panelsnap:finish", this.activate.bind(this));
+    this.$el.on("panelsnap:deactivate", this.deactivate.bind(this));
   },
 
   // TODO: probably abstract this into a child of baseview... say GlimpseView
   activate: function() {
-    var self = this;
-    new TimelineMax()
-      .to(self.$('h1'), 0.3, { autoAlpha: 1 })
-      .to(self.$('.description'), 0.7, { autoAlpha: 1 })
-      .to(self.$('.play'), 0.5, { autoAlpha: 1 });
+    this.tease();
+  },
+
+  deactivate: function() {
+    this.seduce().reverse();
+    this.tease().reverse();
   },
 
   // TODO: probably abstract this into a child of baseview... say GlimpseView
   play: function() {
-    var self = this;
-    new TimelineMax()
-      .to(self.$('.absolute-center'), 0.3, { autoAlpha: 0 })
-      .to(self.$('.overlay'), 0.5, { autoAlpha: 0 });
+    this.seduce();
   },
 
-  getTimeline: function(){
+  tease: function() {
     var self = this;
-    return (new TimelineMax()
-      .append(TweenMax.from(this.$('.header'), 500, {marginTop: -10, autoAlpha: 0}))
-      .append([
-        TweenMax.to(this.$('.header'), 500, {marginTop: -10, autoAlpha: 0, delay: 500}),
-        TweenMax.from(this.$('.note'), 500, {right: '-200%',rotationZ: 10, delay: 500})])
-      .append([
-        TweenMax.to(this.$('.note'), 500, {delay: 500, left: '-200%',rotationZ: -10}),
-        TweenMax.to(this.$('.overlay'), 500, {autoAlpha: 0, delay: 500})
-      ])
-      );
+    var tl = new TimelineMax()
+      .fromTo(self.$('h1'), 0.3, { autoAlpha: 0 }, { autoAlpha: 1 })
+      .fromTo(self.$('.description'), 0.7, { autoAlpha: 0 }, { autoAlpha: 1 })
+      .fromTo(self.$('.play'), 0.5,{ autoAlpha: 0 }, { autoAlpha: 1 });
+    return tl;
+  },
+
+  seduce: function() {
+    var self = this;
+    var tl =new TimelineMax()
+      .fromTo(self.$('.absolute-center'), 0.3, { autoAlpha: 1}, { autoAlpha: 0 })
+      .fromTo(self.$('.overlay'), 0.5, { autoAlpha: 0.75}, { autoAlpha: 0 });
+    return tl;
   },
 
   initMap: function(){

@@ -1,6 +1,6 @@
 var BaseView = require('../base');
 module.exports = BaseView.extend({
-  className: 'glimpse nostalgia',
+  className: 'glimpse progress',
   $video: null,
   events: {
     'click .play': 'play'
@@ -15,7 +15,7 @@ module.exports = BaseView.extend({
   play: function(e) {
     var self = this;
     e.preventDefault();
-    this.seduce();
+    this.getTimeline();
 
   },
 
@@ -25,16 +25,16 @@ module.exports = BaseView.extend({
   },
 
   activate: function() {
-    this.tease();
+    this.getFocusTimeline();
   },
 
   deactivate: function() {
     this.$('video')[0].pause();
-    this.seduce().reverse();
-    this.tease().reverse();
+    this.getTimeline().reverse();
+    this.getFocusTimeline().reverse();
   },
 
-  seduce: function() {
+  getTimeline: function() {
     return new TimelineMax()
       .fromTo(this.$('.overlay'), 0.3, { autoAlpha: 0.75}, { autoAlpha: 0 })
       .fromTo(this.$('.absolute-center'), 0.4,
@@ -45,7 +45,7 @@ module.exports = BaseView.extend({
                         }});
   },
 
-  tease: function() {
+  getFocusTimeline: function() {
     var self = this;
     var tl = new TimelineMax()
       .fromTo(self.$('h1'), 0.5, { autoAlpha: 0 }, { autoAlpha: 1 })

@@ -20,7 +20,16 @@ module.exports = BaseView.extend({
       'nostalgia',
       'commitment',
       'migration',
-      'fin'
+      'new_homes',
+      'new_friends',
+      'old_friends',
+      'girlfriends',
+      'siblings',
+      'fresh_pow',
+      'wet_pow',
+      'missed_pow',
+      'no_pow',
+      'fin',
     ];
   },
 
