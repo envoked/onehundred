@@ -47,23 +47,28 @@ module.exports = function(grunt) {
         files: 'app/**/*.js',
         tasks: ['browserify'],
         options: {
-          interrupt: true
+          interrupt: true,
         }
       },
       templates: {
         files: 'app/**/*.hbs',
         tasks: ['handlebars'],
         options: {
-          interrupt: true
+          interrupt: true,
         }
       },
       stylesheets: {
         files: [stylesheetsDir + '/**/*.styl', stylesheetsDir + '/**/*.css'],
         tasks: ['stylus'],
         options: {
-          interrupt: true
+          livereload: true
         }
+      },
+      livereload: {
+        options: { livereload: true },
+        files: ['public/styles.css', 'app/templates/compiledTemplates.js', 'public/mergedAssets.js']
       }
+
     },
 
     browserify: {
@@ -74,7 +79,7 @@ module.exports = function(grunt) {
         ],
         dest: 'public/mergedAssets.js',
         options: {
-          debug: true,
+          debug: false,
           alias: [
             'node_modules/rendr-handlebars/index.js:rendr-handlebars',
           ],

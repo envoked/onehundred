@@ -20,15 +20,6 @@ var server = rendr.createServer({
   appData: config.appData
 });
 
-/**
- * The `addLocaleToRequest` middleware can go outside of a `server.configure()` block
- * because it doesn't access `req.rendrApp`. This example middleware just adds a
- * `req.locale` property based on the query string. Because the same exact `req`
- * object is passed to each middleware, any middleware that follow
- * `addLocaleToRequest` can access `req.locale`, including the middleware added to
- * the Rendr server's internal Express app in a `server.configure()` block.
- */
-app.use(mw.addLocaleToRequest());
 
 /**
  * Demonstrate how to use Express' `res.locals` to pass additional data to the
@@ -50,16 +41,6 @@ app.use(function(req, res, next) {
   *     app.use('/my_cool_app', server);
   */
 app.use(server);
-
-server.configure(function(rendrExpressApp) {
-  /**
-   * The `fetchDataForApp` middleware has to go in a `server.configure()` block
-   * because it access `req.rendrApp`, which is equivalent to `this.app` in your
-   * models, views, and controllers.
-   */
-  rendrExpressApp.use(mw.fetchDataForApp({apiKeyForFakeService: 'sup3rs3cr3t'}));
-});
-
 
 /**
  * Start the Express server.
