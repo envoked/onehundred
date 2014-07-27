@@ -1,32 +1,28 @@
 {
-  "name": "The-Pursuit",
-  "version": "0.1.6",
+  "name": "rendr-example",
+  "version": "0.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "mocha --ui bdd --reporter spec  ./test --recursive",
-    "start": "DEBUG=app:* node index.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/airbnb/rendr-app-template.git"
+    "start": "node index.js",
+    "postinstall": "test -f ../../package.json && npm install ../../ || echo",
+    "postupdate": "test -f ../../package.json && npm install ../../ || echo"
   },
   "dependencies": {
-    "express": "~>3",
-    "underscore": "~1.4.4",
+    "express": "~3",
+    "underscore": "~1.5.2",
     "async": "~0.1.22",
-    "request": "~2.16",
-    "rendr-handlebars": "0.0.5",
-    "rendr": "0.5.0-alpha07",
-    "mongoose": "~>3.6.17",
-    "baucis": "~>0.6.10",
-    "debug": "*"
+    "rendr-handlebars": "0.2.0",
+    "rendr": "0.5.0",
+    "config": "~0.4.30",
+    "js-yaml": "2.x.x"
   },
   "devDependencies": {
     "grunt": "~0.4.1",
-    "grunt-contrib-stylus": "~0.5.0",
-    "grunt-contrib-handlebars": "git://github.com/spikebrehm/grunt-contrib-handlebars#a4ae75750efeb23bf8ca9c61d9cf7569d40879fa",
-    "grunt-rendr-stitch": "~0.0.6",
+    "grunt-browserify": "~1.2.9",
+    "grunt-contrib-stylus": "0.18.0",
+    "grunt-contrib-handlebars": "~0.5.11",
     "grunt-contrib-watch": "~0.3.1",
     "nodemon": "~0.7.6",
     "mocha": "~1.9.0",
@@ -34,5 +30,6 @@
   },
   "engines": {
     "node": ">=0.8"
-  }
+  },
+  "private": true
 }

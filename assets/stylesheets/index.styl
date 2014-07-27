@@ -11,7 +11,6 @@ ember      = #E68525;
 @import 'nib'
 @import 'type.css'
 @import 'fonts'
-@import 'grid.styl'
 @import 'spinner.css'
 @import 'glimpses/intro.styl'
 @import 'glimpses/preface.styl'
@@ -20,12 +19,6 @@ ember      = #E68525;
 @import 'glimpses/preparation.styl'
 @import 'glimpses/fresh_tracks.styl'
 @import 'glimpses/generic.styl'
-
-// Config
-@columns = 12
-@column-width = 60;
-@gutter-width = 20;
-@total-width = 100%;
 
 global-reset()
 
@@ -59,7 +52,7 @@ a
     text-decoration: underline
 
 .absolute-center
-  column(6)
+  center()
   overflow: auto
   margin: auto
   position: absolute

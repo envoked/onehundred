@@ -5,12 +5,7 @@ module.exports = BaseView.extend({
   id: 'viewport',
 
   postRender: function(){
-    this.$el.panelSnap({
-        $menu: false,
-        namespace: '.panelSnap',
-        slideSpeed: 700,
-        directionThreshold: 35,
-    });
+
   },
 
   getGlimpses: function(){

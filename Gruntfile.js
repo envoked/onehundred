@@ -13,8 +13,8 @@ module.exports = function(grunt) {
     stylus: {
       compile: {
         options: {
-          paths: [stylesheetsDir],
-          'include css': true
+          paths: [stylesheetsDir, 'node_modules/jeet/stylus/'],
+          'include css': true,
         },
         files: {
           'public/styles.css': stylesheetsDir + '/index.styl'
@@ -45,7 +45,7 @@ module.exports = function(grunt) {
     watch: {
       scripts: {
         files: 'app/**/*.js',
-        tasks: ['rendr_stitch'],
+        tasks: ['browserify'],
         options: {
           interrupt: true
         }
@@ -66,48 +66,45 @@ module.exports = function(grunt) {
       }
     },
 
-    rendr_stitch: {
-      compile: {
+    browserify: {
+      basic: {
+        src: [
+          'assets/vendor/**/*.js',
+          'app/**/*.js',
+        ],
+        dest: 'public/mergedAssets.js',
         options: {
-          dependencies: [
-            'assets/vendor/**/*.js'
+          debug: true,
+          alias: [
+            'node_modules/rendr-handlebars/index.js:rendr-handlebars',
           ],
-          npmDependencies: {
-            underscore: '../rendr/node_modules/underscore/underscore.js',
-            backbone: '../rendr/node_modules/backbone/backbone.js',
-            handlebars: '../rendr-handlebars/node_modules/handlebars/dist/handlebars.runtime.js',
-            async: '../rendr/node_modules/async/lib/async.js'
+          aliasMappings: [
+            {
+              cwd: 'app/',
+              src: ['**/*.js'],
+              dest: 'app/'
+            },
+          ],
+          shim: {
+            jquery: {
+              path: 'assets/vendor/jquery-1.9.1.min.js',
+              exports: '$',
+            },
           },
-          aliases: [
-            {from: rendrDir + '/client', to: 'rendr/client'},
-            {from: rendrDir + '/shared', to: 'rendr/shared'},
-            {from: rendrHandlebarsDir, to: 'rendr-handlebars'},
-            {from: rendrHandlebarsDir + '/shared', to: 'rendr-handlebars/shared'}
-          ]
-        },
-        files: [{
-          dest: 'public/mergedAssets.js',
-          src: [
-            'app/**/*.js',
-            rendrDir + '/client/**/*.js',
-            rendrDir + '/shared/**/*.js',
-            rendrHandlebarsDir + '/index.js',
-            rendrHandlebarsDir + '/shared/*.js'
-          ]
-        }]
+        }
       }
     }
   });
 
+  grunt.loadNpmTasks('grunt-browserify');
+  grunt.loadNpmTasks('grunt-contrib-handlebars');
   grunt.loadNpmTasks('grunt-contrib-stylus');
   grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-contrib-handlebars');
-  grunt.loadNpmTasks('grunt-rendr-stitch');
 
   grunt.registerTask('runNode', function () {
     grunt.util.spawn({
       cmd: 'node',
-      args: ['./node_modules/nodemon/nodemon.js', '--debug', 'index.js'],
+      args: ['./node_modules/nodemon/nodemon.js', 'index.js'],
       opts: {
         stdio: 'inherit'
       }
@@ -117,11 +114,13 @@ module.exports = function(grunt) {
   });
 
 
-  grunt.registerTask('compile', ['handlebars', 'rendr_stitch', 'stylus']);
+  grunt.registerTask('compile', ['handlebars', 'browserify', 'stylus']);
 
   // Run the server and watch for file changes
-  grunt.registerTask('server', ['runNode', 'compile', 'watch']);
+  grunt.registerTask('server', ['compile', 'runNode', 'watch']);
 
   // Default task(s).
   grunt.registerTask('default', ['compile']);
+
 };
+
