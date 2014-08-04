@@ -2,14 +2,14 @@
 .intro
   background-image: url('/images/fresh_tracks.jpg')
   background-size: cover
-  .typcn-arrow-down-outline
-    font-size: 1220px
-    color: dark-snow
-    margin-top: 18px
-    display: inline-block
-    visibility: hidden
-    opacity(0)
+
+  .hero
+    col(1/2, offset: 1/4)
+    align(vertical)
+
+    +below(500px)
+      background-color: red
 
   h1
-    font-size: 21px
-    color: #0f0f0f
+    font-size: 11vw
+

@@ -11,8 +11,7 @@ module.exports = BaseView.extend({
   getGlimpses: function(){
     return [
       'intro',
-      'preface',
-      'nostalgia',
+      'daydream',
       'commitment',
       'migration',
       'new_homes',

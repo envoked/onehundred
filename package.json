@@ -1,7 +1,7 @@
 {
-  "name": "rendr-example",
+  "name": "One-Hundred",
   "version": "0.0.0",
-  "description": "",
+  "description": "A Story about an experience",
   "main": "index.js",
   "scripts": {
     "test": "mocha --ui bdd --reporter spec  ./test --recursive",
@@ -16,7 +16,8 @@
     "rendr-handlebars": "0.2.0",
     "rendr": "0.5.0",
     "config": "~0.4.30",
-    "js-yaml": "2.x.x"
+    "jeet": "5.3.0",
+    "rupture": "0.3.0"
   },
   "devDependencies": {
     "grunt": "~0.4.1",

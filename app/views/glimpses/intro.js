@@ -4,7 +4,6 @@ module.exports = BaseView.extend({
   className: 'glimpse intro',
 
   postRender: function(){
-    this.addTweens();
     return true;
   },
 
@@ -16,4 +15,3 @@ module.exports = BaseView.extend({
   }
 });
 module.exports.id ="glimpses/intro";
-

@@ -13,8 +13,14 @@ module.exports = function(grunt) {
     stylus: {
       compile: {
         options: {
-          paths: [stylesheetsDir, 'node_modules/jeet/stylus/'],
+          paths: [
+            stylesheetsDir,
+          ],
           'include css': true,
+          use: [
+            require('jeet'),
+            require('rupture')
+          ]
         },
         files: {
           'public/styles.css': stylesheetsDir + '/index.styl'

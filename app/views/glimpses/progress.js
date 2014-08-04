@@ -56,10 +56,10 @@ module.exports = BaseView.extend({
 
   initVideo: function(){
     this.$el.videoBG({
-      mp4    : '/videos/nostalgia/nostalgia.mp4',
-      webm   : '/videos/nostalgia/nostalgia.webm',
-      ogv    : '/videos/nostalgia/nostalgia.ogg',
-      poster : '/videos/nostalgia/nostalgia.jpg',
+      mp4    : '/videos/daydream/daydream.mp4',
+      webm   : '/videos/daydream/daydream.webm',
+      ogv    : '/videos/daydream/daydream.ogg',
+      poster : '/videos/daydream/daydream.jpg',
       scale  : true,
       zIndex : 0,
       autoPlay: false,
@@ -68,5 +68,5 @@ module.exports = BaseView.extend({
   }
 
 });
-module.exports.id ="glimpses/nostalgia";
+module.exports.id ="glimpses/daydream";
 
