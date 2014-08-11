@@ -1,4 +1,4 @@
-var BaseView = require('../base');
+var BaseView = require('../glimpse');
 module.exports = BaseView.extend({
   className: 'glimpse commitment',
 
@@ -20,34 +20,10 @@ module.exports = BaseView.extend({
 
   // TODO: probably abstract this into a child of baseview... say GlimpseView
   activate: function() {
-    this.tease();
+    var $overlay = this.$('.overlay').hide();
   },
 
   deactivate: function() {
-    this.seduce().reverse();
-    this.tease().reverse();
-  },
-
-  // TODO: probably abstract this into a child of baseview... say GlimpseView
-  play: function() {
-    this.seduce();
-  },
-
-  tease: function() {
-    var self = this;
-    var tl = new TimelineMax()
-      .fromTo(self.$('h1'), 0.3, { autoAlpha: 0 }, { autoAlpha: 1 })
-      .fromTo(self.$('.description'), 0.7, { autoAlpha: 0 }, { autoAlpha: 1 })
-      .fromTo(self.$('.play'), 0.5,{ autoAlpha: 0 }, { autoAlpha: 1 });
-    return tl;
-  },
-
-  seduce: function() {
-    var self = this;
-    var tl =new TimelineMax()
-      .fromTo(self.$('.absolute-center'), 0.3, { autoAlpha: 1}, { autoAlpha: 0 })
-      .fromTo(self.$('.overlay'), 0.5, { autoAlpha: 0.75}, { autoAlpha: 0 });
-    return tl;
   },
 
   initMap: function(){

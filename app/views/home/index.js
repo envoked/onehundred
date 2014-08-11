@@ -5,7 +5,9 @@ module.exports = BaseView.extend({
   id: 'viewport',
 
   postRender: function(){
-
+    $('#viewport').panelSnap({
+      panelSelector: 'section'
+    });
   },
 
   getGlimpses: function(){
@@ -13,17 +15,6 @@ module.exports = BaseView.extend({
       'intro',
       'daydream',
       'commitment',
-      'migration',
-      'new_homes',
-      'new_friends',
-      'old_friends',
-      'girlfriends',
-      'siblings',
-      'fresh_pow',
-      'wet_pow',
-      'missed_pow',
-      'no_pow',
-      'fin',
     ];
   },
 

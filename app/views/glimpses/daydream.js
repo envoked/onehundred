@@ -1,10 +1,8 @@
-var BaseView = require('../base');
+var BaseView = require('../glimpse');
 module.exports = BaseView.extend({
   className: 'glimpse daydream',
 
   postRender: function(){
-    this.initVideo();
-    this.eavesdrop();
     return true;
   },
 });
