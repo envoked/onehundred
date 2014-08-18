@@ -1,12 +1,15 @@
-.map
-  height: 66%
-  width: 100%
+.commitment
+  background: charcoal
+  transition: all 0.2s ease-in-out
+  color: suble-snow
+  &.open
+    background-image: url('/images/migration.jpg')
+    background-size: cover
+    transform(translate3d(0,0,0))
 
-.note
-  col(1/4)
-  height: 40%
-.money-transfer
-  col(3/4)
-  min-height 200px
-  background-image: url('/images/money-transfer.png')
-  background-size: cover
+    h1
+      display: none
+
+
+  h1
+    align(vertical)

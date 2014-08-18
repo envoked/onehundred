@@ -1,4 +1,4 @@
-var BaseView = require('../base');
+var BaseView = require('../glimpse');
 module.exports = BaseView.extend({
   className: 'glimpse fin',
 });

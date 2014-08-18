@@ -1,7 +1,7 @@
 var BaseView = require('../glimpse');
 module.exports = BaseView.extend({
-  className: 'glimpse migration',
+  className: 'glimpse base_camp',
 });
 
-module.exports.id ="glimpses/migration";
+module.exports.id ="glimpses/base_camp";
 

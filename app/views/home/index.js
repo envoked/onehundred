@@ -15,6 +15,13 @@ module.exports = BaseView.extend({
       'intro',
       'daydream',
       'commitment',
+      'base_camp',
+      'the_chase_begins',
+      'eat_ride',
+      'the_people',
+      'timing_is_everything',
+      'triple_digits',
+      'fin',
     ];
   },
 
