@@ -12,7 +12,6 @@ module.exports = BaseView.extend({
   },
 
   postRender: function(){
-    // this.initMap();
     this.eavesdrop();
 
     return true;

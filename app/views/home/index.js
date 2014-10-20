@@ -12,6 +12,7 @@ module.exports = BaseView.extend({
 
   getGlimpses: function(){
     return [
+      'timing_is_everything',
       'intro',
       'daydream',
       'commitment',
