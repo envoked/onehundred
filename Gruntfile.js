@@ -98,9 +98,16 @@ module.exports = function(grunt) {
           ],
           shim: {
             jquery: {
-              path: 'assets/vendor/jquery-1.9.1.min.js',
+              path: 'assets/vendor/jquery-2.1.1.js',
               exports: '$',
             },
+            'jquery.scrollmagic': {
+              path: 'assets/vendor/jquery.scrollmagic.js',
+              exports: null,
+              depends: {
+                jquery: '$'
+              }
+            }
           },
         }
       }

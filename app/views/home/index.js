@@ -1,26 +1,38 @@
 var BaseView = require('../base');
-
 module.exports = BaseView.extend({
   tagName: 'div',
   id: 'viewport',
+  ScrollController: null,
 
   postRender: function(){
-    $('#viewport').panelSnap({
-      panelSelector: 'section'
+    this.ScrollController = new ScrollMagic();
+    this.addScenes();
+  },
+
+  addScenes: function() {
+    var self = this;
+    this.childViews.forEach(function(childView) {
+      if(childView.scene) {
+        self.ScrollController.addScene(childView.scene);
+        console.log('Adding scene for ' + childView.id);
+      }
     });
   },
 
   getGlimpses: function(){
     return [
-      'timing_is_everything',
       'intro',
       'daydream',
-      'commitment',
+      'the-plan',
       'base_camp',
-      'the_chase_begins',
-      'eat_ride',
+      'migration',
+      'arrival',
+      'tooth',
+      'first_day',
+      'back_to_reality',
+      'the_realization',
       'the_people',
-      'timing_is_everything',
+      'all_is_temporary',
       'triple_digits',
       'fin',
     ];
