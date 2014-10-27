@@ -8,6 +8,7 @@ fire-red   = #D45B39;
 ember      = #E68525;
 charcoal   = #383636;
 
+global-reset()
 @import 'nib'
 @import 'jeet'
 @import 'rupture'
@@ -19,7 +20,6 @@ charcoal   = #383636;
 @import 'glimpses/commitment.styl'
 @import 'glimpses/generic.styl'
 
-global-reset()
 
 
 html, body
@@ -30,20 +30,6 @@ html, body
 body
   color: #323232
   position: relative
-  font-size: 14px
-
-
-// Typo grid
-
-// Typographic grid
-p
-  font-size: 1.8vh
-  margin-bottom: 1.8vh
-  -webkit-font-smoothing: antialiased;
-
-h1
-  font-size: 100px
-  margin-bottom: 18px
 
 a
   text-decoration: none;
@@ -63,12 +49,12 @@ a
 
 
   .one-hundred-days
-    font-size: 120px;
+
     display: inline-block
     text-shadow black 0px 2px 4px;
 
   .object
-    font-size: 90px
+
     display: inline-block
     margin: 0px 10px
 
@@ -78,18 +64,18 @@ a
 
   .description
     margin: 18px 0px
-    font-size: 18px
+
     opacity(0)
 
   .play
     background: rgba(33,33,33,0.8)
-    font-size: 32px
+
     padding: 10px
     width: 72px
     height: 72px
     border-radius(72px)
     line-height: 72px
-    font-size: 60px
+
     display: inline-block
     opacity(0)
 
@@ -97,7 +83,7 @@ a
   border-top: 2px solid dark-sky
   border-bottom: 1px solid dark-sky
   padding: 10px 0px;
-  font-size: 18px
+
   color: fire-red
 
 .bottom-nav
@@ -169,7 +155,7 @@ a
 .play {
   cursor: pointer
   display: block
-  font-size: 54px
+
   text-align: center
 }
 
@@ -177,7 +163,7 @@ a
 // new
 button
   cursor: pointer
-  font-size: inherit
+
   color: inherit
   background: inherit
   display: inline-block

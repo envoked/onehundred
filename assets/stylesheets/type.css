@@ -1,9 +1,31 @@
-/* TYPOGRAPHY */
-/* Composed to a scale of 12px, 14px, 16px, 18px, 21px, 24px, 36px, 48px, 60px and 72px */
-h1 {margin: 0; font-size: 3.75em; line-height: 1.2em; margin-bottom: 0.4em} /* 60px / 72px */
-h2 {margin: 0; font-size: 3em; line-height: 1em; margin-bottom: 0.5em} /* 48px / 48px */
-h3 {margin: 0; font-size: 2.25em; line-height: 1.3333333333333333333333333333333em; margin-bottom: 0.6667em} /* 36px / 48px */
-h4 {margin: 0; font-size: 1.5em; line-height: 1em; margin-bottom: 1em} /* 24px / 24px */
-h5 {margin: 0; font-size: 1.3125em; line-height: 1.1428571428571428571428571428571em; margin-bottom: 1.1428571428571428571428571428571em} /* 21px / 24px */
-h6 {margin: 0; font-size: 1.125em; line-height: 1.3333333333333333333333333333333em; margin-bottom: 1.3333333333333333333333333333333em} /* 18px / 24px */
-p, ul, blockquote, pre, td, th, label {margin: 0; font-size: 1em; line-height: 1.5em; margin-bottom: 1.5em} /* 16px / 24px */
+html {font-size: 1em;}
+
+body {
+  background-color: white;
+  font-family: aleo-bold;
+  font-weight: 400;
+  line-height: 1.45;
+  color: #333;
+}
+
+p {margin-bottom: 1.3em;}
+
+h1, h2, h3, h4 {
+  margin: 1.414em 0 0.5em;
+  font-family: aleo-bold;
+  font-weight: inherit;
+  line-height: 1.2;
+}
+
+h1 {
+  margin-top: 0;
+  font-size: 6.854em;
+}
+
+h2 {font-size: 4.236em;}
+
+h3 {font-size: 2.618em;}
+
+h4 {font-size: 1.618em;}
+
+small, .font_small {font-size: 0.618em;}
