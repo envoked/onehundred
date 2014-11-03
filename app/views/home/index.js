@@ -21,14 +21,14 @@ module.exports = BaseView.extend({
 
   getGlimpses: function(){
     return [
-      'intro',
-      'daydream',
-      'the-plan',
-      'base_camp',
-      'migration',
-      'arrival',
-      'tooth',
-      'first_day',
+      // 'intro',
+      // 'daydream',
+      // 'the-plan',
+      // 'base_camp',
+      // 'migration',
+      // 'arrival',
+      // 'tooth',
+      // 'first_day',
       'back_to_reality',
       'the_realization',
       'the_people',

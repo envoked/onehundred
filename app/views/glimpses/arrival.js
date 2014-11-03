@@ -1,7 +1,6 @@
 var BaseView = require('../glimpse');
 module.exports = BaseView.extend({
   className: 'glimpse arrival',
-  id: 'arrival',
 
   postRender: function() {
     // this.setScene();

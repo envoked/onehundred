@@ -2,17 +2,18 @@ html {font-size: 1em;}
 
 body {
   background-color: white;
-  font-family: aleo-bold;
+  font-family: aleolightitalic;
   font-weight: 400;
   line-height: 1.45;
   color: #333;
+
 }
 
 p {margin-bottom: 1.3em;}
 
 h1, h2, h3, h4 {
   margin: 1.414em 0 0.5em;
-  font-family: aleo-bold;
+  font-family: aleobold;
   font-weight: inherit;
   line-height: 1.2;
 }

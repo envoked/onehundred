@@ -17,7 +17,6 @@ global-reset()
 @import 'spinner.css'
 @import 'glimpses/intro.styl'
 @import 'glimpses/daydream.styl'
-@import 'glimpses/commitment.styl'
 @import 'glimpses/generic.styl'
 
 
@@ -28,7 +27,8 @@ html, body
   background: suble-snow
 
 body
-  color: #323232
+  margin: 0px;
+  color: #323232;
   position: relative
 
 a
@@ -108,7 +108,9 @@ a
   position: relative
   display: block
   background-size: cover
+  background-position: center
   overflow: hidden
+  padding: 10px;
 
   &:active {
     z-index: 10
@@ -159,6 +161,15 @@ a
   text-align: center
 }
 
+.half-spread {
+  col(1/2)
+}
+
+.third-spread {
+  col(1/3)
+  align()
+}
+
 
 // new
 button
@@ -175,4 +186,6 @@ button
     color: ember
     border-color: ember
 
-
+.shadow
+  color: #DCDDE1;
+  text-shadow: 1px 1px 2px rgba(41, 41, 41, 1);
